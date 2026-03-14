@@ -5,129 +5,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nagendran M | Senior Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Source Sans 3', sans-serif; }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        
+        /* Smooth Scroll & Reveal Animation CSS */
+        html { scroll-behavior: smooth; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Blinking Cursor for Terminal Effect */
+        .cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Timeline & Vehicle Styles */
+        .timeline-track {
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #eff6ff, #3b82f6, #eff6ff);
+            border-radius: 2px;
+            z-index: 0;
+        }
+        .vehicle-wrapper {
+            position: absolute;
+            left: -3px;
+            top: 0;
+            z-index: 10;
+            transition: top 0.1s linear; /* Changed to linear for smoother tracking */
+            transform: translateY(-50%);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 leading-relaxed">
+<body class="bg-slate-50 text-slate-800 leading-relaxed selection:bg-blue-200 selection:text-blue-900">
 
-    <header class="bg-white shadow-sm py-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
-            <img src="Nagendran_Profile.jpeg" alt="Nagendran M" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-gray-100">
+    <header class="bg-white shadow-sm py-16 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-blue-50 opacity-50 blur-3xl"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 relative z-10">
+            <img src="profile.jpg" alt="Nagendran M" class="w-40 h-40 rounded-full object-cover shadow-xl border-4 border-white transition-transform duration-500 hover:scale-105 hover:rotate-2">
             
             <div class="text-center md:text-left">
-                <h1 class="text-4xl font-bold text-gray-900">Nagendran M</h1>
-                <p class="text-xl text-blue-600 font-semibold mt-2">Senior Software Engineer | Ruby on Rails Specialist</p>
-                <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-600">
-                    <span>📍 Chennai, India</span>
-                    <a href="mailto:nagendransri3@gmail.com" class="hover:text-blue-600">✉️ nagendransri3@gmail.com</a>
-                    <a href="https://linkedin.com/in/nagendranm08122000" target="_blank" class="hover:text-blue-600">🔗 LinkedIn</a>
-                    <a href="https://nagendranm5.github.io/nagendran.github.io/" target="_blank" class="hover:text-blue-600">🌐 Portfolio</a>
+                <h1 class="text-4xl font-bold text-slate-900 tracking-tight">Nagendran M</h1>
+                
+                <div class="mt-3 bg-slate-800 text-green-400 font-mono text-sm sm:text-base py-2 px-4 rounded-md inline-block shadow-inner h-10 flex items-center">
+                    <span class="text-blue-400 mr-2">~</span> <span id="typewriter" class="cursor"></span>
+                </div>
+
+                <div class="mt-5 flex flex-wrap justify-center md:justify-start gap-4 text-sm font-semibold text-slate-600">
+                    <span class="flex items-center gap-1 hover:text-blue-600 transition-colors">📍 Chennai, India</span>
+                    <a href="mailto:nagendransri3@gmail.com" class="flex items-center gap-1 hover:text-blue-600 transition-colors">✉️ nagendransri3@gmail.com</a>
+                    <a href="https://linkedin.com/in/nagendranm08122000" target="_blank" class="flex items-center gap-1 hover:text-blue-600 transition-colors">🔗 LinkedIn</a>
+                    <a href="https://nagendranm5.github.io/nagendran.github.io/" target="_blank" class="flex items-center gap-1 hover:text-blue-600 transition-colors">🌐 Portfolio</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         
-        <section>
-            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-4">About Me</h2>
-            <p class="text-gray-700">
+        <section class="reveal">
+            <h2 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-900">About Me</h2>
+            <p class="text-slate-700 text-lg">
                 Senior Software Engineer with 4+ years of experience in full-stack development, specializing in Ruby on Rails, database optimization, and AI-accelerated development. Delivered high-quality, scalable enterprise platforms by leveraging AI coding assistants to drive rapid prototyping and efficient execution. Focused on integrating modern technologies, enhancing system performance, and collaborating within Agile teams to architect stable, revenue-driving solutions.
             </p>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-4">Technical Arsenal</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
-                    <h3 class="font-semibold text-gray-900 mb-2">Languages & Frameworks</h3>
-                    <p class="text-sm text-gray-600">Ruby, Ruby on Rails, Rspec, React JS, Node JS, Sidekiq, Capybara, JavaScript, HTML/CSS, Linux scripting</p>
+        <section class="reveal relative">
+            <h2 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-900">Technical Arsenal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 group">
+                    <h3 class="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Languages & Frameworks</h3>
+                    <p class="text-sm text-slate-600">Ruby, Ruby on Rails, Rspec, React JS, Node JS, Sidekiq, Capybara, JavaScript, HTML/CSS, Linux scripting</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
-                    <h3 class="font-semibold text-gray-900 mb-2">Database & Query Management</h3>
-                    <p class="text-sm text-gray-600">SQL, PostgreSQL, ActiveRecord, Redis, Elastic Search</p>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 group">
+                    <h3 class="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Database & Query Management</h3>
+                    <p class="text-sm text-slate-600">SQL, PostgreSQL, ActiveRecord, Redis, Elastic Search</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
-                    <h3 class="font-semibold text-gray-900 mb-2">Tools & DevOps</h3>
-                    <p class="text-sm text-gray-600">AWS, Docker, Kubernetes, GitHub Actions, Jenkins, Heroku, Windsurf, Gemini, Postman</p>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 group">
+                    <h3 class="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Tools & Platforms</h3>
+                    <p class="text-sm text-slate-600">AWS, Docker, Kubernetes, GitHub Actions, Jenkins, Google Console, GIT, GitHub, Postman, JIRA, Heroku, Windsurf, Gemini</p>
                 </div>
-                <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
-                    <h3 class="font-semibold text-gray-900 mb-2">Automation Domain</h3>
-                    <p class="text-sm text-gray-600">Document Compression (PDF/Image conversion, merging, size reduction)</p>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200 group">
+                    <h3 class="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Automation Domain</h3>
+                    <p class="text-sm text-slate-600">Document Compression (PDF/Image conversion, merging, size reduction)</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-6">Experience</h2>
+        <section class="reveal">
+            <h2 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-8 text-slate-900">Experience</h2>
             
-            <div class="mb-8">
-                <div class="flex flex-col md:flex-row justify-between items-baseline mb-2">
-                    <h3 class="text-lg font-bold text-gray-900">Senior Software Engineer | Vakilsearch</h3>
-                    <span class="text-sm text-gray-500 font-semibold text-blue-600">April 2025 – Present</span>
-                </div>
-                <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2 text-sm mt-3">
-                    <li><strong>Lead Backend Architect for "Zolvit 360":</strong> Designed and developed the Ruby on Rails backend for a comprehensive enterprise platform utilized by customers and executives, featuring Compliances, Reports, Marketplace, Calendar, and User & Roles management.</li>
-                    <li><strong>Billing Engine Development:</strong> Engineered the complete backend logic for the Zolvit 360 Billing module from scratch, integrating complex HSN/SAC codes to securely process 2500 invoices daily and manage thousands of items/parties.</li>
-                    <li><strong>Drove User Adoption:</strong> The successful deployment of this Billing module surged Monthly Active Users (MAU) from 56% to 89% and significantly boosted overall customer retention rates.</li>
-                    <li><strong>End-to-End GST Integration:</strong> Integrated a GST Filing module via Sandbox GSP, enabling portal-free, in-app tax filing. Launched a DIY subscription model for this feature, generating ₹3 Lakhs/month in recurring revenue with minimal manual intervention.</li>
-                    <li><strong>AI-Accelerated Execution:</strong> Leveraged AI tools (Windsurf and Gemini) to rapidly prototype, build, and deploy complex features, reducing average development lifecycles by 40% while maintaining zero major defects.</li>
-                    <li><strong>Revenue Generation:</strong> Implemented an automated customer status and document submission system, increasing MAU and generating ₹2.5 Cr annual revenue.</li>
-                    <li><strong>Compliance Centralization:</strong> Built licenses and registrations management to centralize statutory compliance tracking for over 100+ organizations, ensuring 100% regulatory adherence.</li>
-                    <li><strong>Engineering Mentorship:</strong> Mentored 5 junior engineers through technical guidance and rigorous code reviews, reducing post-release bugs by 30% and ensuring 100% on-time releases across 7 core modules.</li>
-                </ul>
-            </div>
+            <div id="timeline-container" class="relative pl-10 md:pl-12 py-4">
+                
+                <div class="timeline-track"></div>
+                
+                <div id="vehicle" class="vehicle-wrapper text-2xl filter drop-shadow-md">🚀</div>
 
-            <div class="mb-8">
-                <div class="flex flex-col md:flex-row justify-between items-baseline mb-2">
-                    <h3 class="text-lg font-bold text-gray-900">Software Engineer | Vakilsearch</h3>
-                    <span class="text-sm text-gray-500 font-semibold text-blue-600">May 2024 – March 2025</span>
+                <div class="mb-12 relative group">
+                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-3">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Senior Software Engineer | Vakilsearch</h3>
+                        <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full shadow-sm">April 2025 – Present</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-4 text-slate-700 space-y-2 text-sm marker:text-blue-400">
+                        <li><strong>Lead Backend Architect for "Zolvit 360":</strong> Designed and developed the Ruby on Rails backend for a comprehensive enterprise platform utilized by customers and executives, featuring Compliances, Reports, Marketplace, Calendar, and User & Roles management.</li>
+                        <li><strong>Billing Engine Development:</strong> Engineered the complete backend logic for the Zolvit 360 Billing module from scratch, integrating complex HSN/SAC codes to securely process 2500 invoices daily and manage thousands of items/parties.</li>
+                        <li><strong>Drove User Adoption:</strong> The successful deployment of this Billing module surged Monthly Active Users (MAU) from 56% to 89% and significantly boosted overall customer retention rates.</li>
+                        <li><strong>End-to-End GST Integration:</strong> Integrated a GST Filing module via Sandbox GSP, enabling portal-free, in-app tax filing. Launched a DIY subscription model for this feature, generating ₹3 Lakhs/month in recurring revenue with minimal manual intervention.</li>
+                        <li><strong>AI-Accelerated Execution:</strong> Leveraged AI tools (Windsurf and Gemini) to rapidly prototype, build, and deploy complex features, reducing average development lifecycles by 40% while maintaining zero major defects.</li>
+                        <li><strong>Revenue Generation:</strong> Implemented an automated customer status and document submission system, increasing MAU and generating ₹2.5 Cr annual revenue.</li>
+                        <li><strong>Compliance Centralization:</strong> Built licenses and registrations management to centralize statutory compliance tracking for over 100+ organizations, ensuring 100% regulatory adherence.</li>
+                        <li><strong>Engineering Mentorship:</strong> Mentored 5 junior engineers through technical guidance and rigorous code reviews, reducing post-release bugs by 30% and ensuring 100% on-time releases across 7 core modules.</li>
+                    </ul>
                 </div>
-                <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2 text-sm mt-3">
-                    <li><strong>Enterprise Platform Engineering:</strong> Engineered a centralized compliance platform adopted by 50+ top-tier corporate clients, standardizing regulatory workflows and eliminating cross-departmental data silos.</li>
-                    <li><strong>Role-Based Access Control (RBAC):</strong> Designed and implemented a granular RBAC system from the ground up to support 15 distinct user roles/permissions, ensuring secure access and reducing workflow-related support tickets.</li>
-                    <li><strong>High-Performance Reporting Engine:</strong> Built a comprehensive reporting module with asynchronous export capabilities (utilizing background jobs), enabling clients to generate massive compliance datasets of up to 1.4 Lakhs records without degrading main server performance.</li>
-                    <li><strong>Audit & Quotation Architecture:</strong> Developed a robust, immutable audit trailing system seamlessly integrated with a custom quotation engine, reducing expert-to-customer quote turnaround time by 40%.</li>
-                    <li><strong>Subscription Lifecycle Management:</strong> Architected the backend workflows for a subscription-based compliance model, connecting internal and external legal experts to drive recurring service delivery, driving a 56% increase in recurring service delivery.</li>
-                    <li><strong>Proactive Monitoring & Optimization:</strong> Created a high-visibility pre-escalation dashboard using optimized database queries to surface overdue items, reducing critical compliance breaches by 85%.</li>
-                    <li><strong>Recognition:</strong> Awarded "Best Employee of the Month" for the successful deployment and impact of the pre-escalation dashboard.</li>
-                </ul>
-            </div>
 
-            <div class="mb-8">
-                <div class="flex flex-col md:flex-row justify-between items-baseline mb-2">
-                    <h3 class="text-lg font-bold text-gray-900">Associate Software Engineer | Vakilsearch</h3>
-                    <span class="text-sm text-gray-500">May 2022 – April 2024</span>
+                <div class="mb-12 relative group">
+                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-3">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Software Engineer | Vakilsearch</h3>
+                        <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full shadow-sm">May 2024 – March 2025</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-4 text-slate-700 space-y-2 text-sm marker:text-blue-400">
+                        <li><strong>Enterprise Platform Engineering:</strong> Engineered a centralized compliance platform adopted by 50+ top-tier corporate clients, standardizing regulatory workflows and eliminating cross-departmental data silos.</li>
+                        <li><strong>Role-Based Access Control (RBAC):</strong> Designed and implemented a granular RBAC system from the ground up to support 15 distinct user roles/permissions, ensuring secure access and reducing workflow-related support tickets.</li>
+                        <li><strong>High-Performance Reporting Engine:</strong> Built a comprehensive reporting module with asynchronous export capabilities (utilizing background jobs), enabling clients to generate massive compliance datasets of up to 1.4 Lakhs records without degrading main server performance.</li>
+                        <li><strong>Audit & Quotation Architecture:</strong> Developed a robust, immutable audit trailing system seamlessly integrated with a custom quotation engine, reducing expert-to-customer quote turnaround time by 40%.</li>
+                        <li><strong>Subscription Lifecycle Management:</strong> Architected the backend workflows for a subscription-based compliance model, connecting internal and external legal experts to drive recurring service delivery, driving a 56% increase in recurring service delivery.</li>
+                        <li><strong>Proactive Monitoring & Optimization:</strong> Created a high-visibility pre-escalation dashboard using optimized database queries to surface overdue items, reducing critical compliance breaches by 85%.</li>
+                        <li><strong>Recognition:</strong> Awarded "Best Employee of the Month" for the successful deployment and impact of the pre-escalation dashboard.</li>
+                    </ul>
                 </div>
-                <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2 text-sm mt-3">
-                    <li>Developed a document compression tool using Linux libraries and Ruby scripting to facilitate file uploads to government portals (image-to-PDF conversion, size compression, PDF merging). Awarded "Best Employee of the Month".</li>
-                    <li>Integrated Simpl payment flow into the product, streamlining payment processes.</li>
-                    <li>Built a one-page CRM application for executives with real-time communication and one-click call functionality.</li>
-                    <li>Executed MoEngage event tracking, enabling detailed user activity tracking.</li>
-                </ul>
-            </div>
 
+                <div class="mb-12 relative group">
+                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-3">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Associate Software Engineer | Vakilsearch</h3>
+                        <span class="text-sm font-semibold text-slate-500">May 2022 – April 2024</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-4 text-slate-700 space-y-2 text-sm marker:text-slate-400">
+                        <li>Integrated Simpl payment flow into the product, streamlining payment processes for users.</li>
+                        <li>Developed a document compression tool using Linux libraries and Ruby scripting to facilitate file uploads to government portals, including image-to-PDF conversion, size compression, and PDF merging features.</li>
+                        <li>Awarded "Best Employee of the Month" for the first time for successfully executing a document compression system.</li>
+                        <li>Implemented a document upload flow for legal services, allowing customers to upload necessary documents and enabling executives to review them efficiently.</li>
+                        <li>Built a one-page CRM application for executives, incorporating real-time communication and one-click call functionality to enhance executive performance.</li>
+                        <li>Designed and developed a self-serve flow for users to easily submit their information, improving user experience.</li>
+                        <li>Created a status tracking page for users to monitor their application progress in real-time without the need for executive involvement.</li>
+                        <li>Executed MoEngage event tracking, enabling detailed user activity tracking and enhancing user engagement insights.</li>
+                    </ul>
+                </div>
+
+                <div class="relative group pb-4">
+                    <div class="flex flex-col md:flex-row justify-between items-baseline mb-3">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Ruby on Rails Developer - Intern | Vakilsearch</h3>
+                        <span class="text-sm font-semibold text-slate-500">July 2021 – April 2022</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-4 text-slate-700 space-y-2 text-sm marker:text-slate-400">
+                        <li>Developed and maintained a CRM application for accounting and legal services, enhancing functionality for customer and agent dashboards.</li>
+                        <li>Integrated automation flows within the CRM to streamline agent processes, improving efficiency and reducing manual effort.</li>
+                        <li>Implemented custom report modules to track executive activities, providing team leaders with actionable insights and performance metrics.</li>
+                    </ul>
+                </div>
+                
+            </div>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-2 mb-4">Education & Awards</h2>
-            <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
-                <h3 class="font-bold text-gray-900">Bachelor of Engineering (ECE)</h3>
-                <p class="text-sm text-gray-600 mb-2">Sri Eshwar College of Engineering, Coimbatore • 2022 • 8.98 CGPA</p>
-                <ul class="list-disc list-outside ml-5 text-gray-700 space-y-1 text-sm">
-                    <li><strong>Winner:</strong> Hack 'O' Holics 2.0, Makeathon 2019, Electrico 2020, and Innovative ProjectExpo 2019.</li>
-                    <li><strong>Finalist:</strong> Safer India Hackathon 2020, Indiapreneur 2019, and Pitch Fest 2019.</li>
+        <section class="reveal">
+            <h2 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-900">Education & Awards</h2>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 group hover:border-blue-200 transition-colors">
+                <h3 class="font-bold text-slate-900 text-lg group-hover:text-blue-600 transition-colors">Bachelor of Engineering (Electronics and Communication Engineering)</h3>
+                <p class="text-sm font-semibold text-slate-600 mb-3 mt-1">Sri Eshwar College of Engineering • Coimbatore • 2022 • 8.98 CGPA</p>
+                <ul class="list-disc list-outside ml-5 text-slate-700 space-y-2 text-sm">
+                    <li><strong>Winner</strong> at Hack 'O' Holics 2.0, Makeathon 2019, Electrico 2020, Cornucopia 2020, INVICTUS 2020, Shooter Pomp 2020, Wizarc'20, and Innovative ProjectExpo 2019.</li>
+                    <li><strong>FINALIST</strong> at Safer India Hackathon 2020, Indiapreneur 2019, and Pitch Fest 2019.</li>
                 </ul>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-gray-800 text-white py-8 text-center mt-12">
-        <p class="text-sm">© 2026 Nagendran M. Built with HTML & Tailwind CSS.</p>
+    <footer class="bg-slate-900 text-slate-300 py-10 text-center mt-12 border-t border-slate-800">
+        <p class="text-sm">© 2026 Nagendran M. Architected with HTML & Tailwind CSS.</p>
     </footer>
 
+    <script>
+        // 1. Terminal Typing Effect (FIXED)
+        const phrases = [
+            "Senior Software Engineer", 
+            "Ruby on Rails Specialist", 
+            "Database Optimizer",
+            "AI-Accelerated Developer"
+        ];
+        let i = 0;
+        let j = 0;
+        let isDeleting = false;
+        const textElement = document.getElementById("typewriter");
+
+        function loop() {
+            const currentPhrase = phrases[i];
+
+            if (isDeleting) {
+                // Remove a character
+                textElement.innerHTML = currentPhrase.substring(0, j - 1);
+                j--;
+            } else {
+                // Add a character
+                textElement.innerHTML = currentPhrase.substring(0, j + 1);
+                j++;
+            }
+
+            // Default typing speed
+            let timeoutSpeed = 80;
+
+            if (isDeleting) {
+                timeoutSpeed = 40; // Faster when deleting
+            }
+
+            // If word is complete
+            if (!isDeleting && j === currentPhrase.length) {
+                timeoutSpeed = 2500; // Pause at the end of the word
+                isDeleting = true;
+            } 
+            // If word is fully deleted
+            else if (isDeleting && j === 0) {
+                isDeleting = false;
+                i = (i + 1) % phrases.length; // Move to the next phrase
+                timeoutSpeed = 500; // Pause before typing the new word
+            }
+
+            setTimeout(loop, timeoutSpeed);
+        }
+
+        // Start the typing loop
+        setTimeout(loop, 500);
+
+        // 2. Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var k = 0; k < reveals.length; k++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[k].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[k].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // 3. Scroll-Linked Vehicle Animation
+        const timelineContainer = document.getElementById('timeline-container');
+        const vehicle = document.getElementById('vehicle');
+
+        function moveVehicle() {
+            const rect = timelineContainer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            const scrollStart = viewportHeight / 2;
+            let progress = (scrollStart - rect.top) / rect.height;
+            
+            progress = Math.max(0, Math.min(1, progress));
+            
+            vehicle.style.top = (progress * 100) + '%';
+        }
+
+        window.addEventListener("scroll", moveVehicle);
+        window.addEventListener("resize", moveVehicle); 
+        moveVehicle(); 
+    </script>
 </body>
 </html>
