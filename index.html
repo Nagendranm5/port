@@ -48,6 +48,38 @@
             transition: top 0.1s linear; /* Changed to linear for smoother tracking */
             transform: translateY(-50%);
         }
+
+        /* Gamified Download Button */
+        .btn-gamified {
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            box-shadow: 0 6px 0 #1e3a8a, 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+        .btn-gamified:hover {
+            transform: translateY(2px);
+            box-shadow: 0 4px 0 #1e3a8a, 0 8px 10px -3px rgba(0, 0, 0, 0.2);
+        }
+        .btn-gamified:active {
+            transform: translateY(6px); /* The "Push" effect */
+            box-shadow: 0 0px 0 #1e3a8a, 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+        }
+        /* The Light Sweep Effect */
+        .btn-gamified::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transform: skewX(-20deg);
+        }
+        .btn-gamified:hover::after {
+            animation: shine 0.7s ease-out;
+        }
+        @keyframes shine {
+            100% { left: 200%; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 leading-relaxed selection:bg-blue-200 selection:text-blue-900">
@@ -70,6 +102,14 @@
                     <a href="mailto:nagendransri3@gmail.com" class="flex items-center gap-1 hover:text-blue-600 transition-colors">✉️ nagendransri3@gmail.com</a>
                     <a href="https://linkedin.com/in/nagendranm08122000" target="_blank" class="flex items-center gap-1 hover:text-blue-600 transition-colors">🔗 LinkedIn</a>
                     <a href="https://nagendranm5.github.io/port/" target="_blank" class="flex items-center gap-1 hover:text-blue-600 transition-colors">🌐 Portfolio</a>
+                    <div class="mt-8 flex justify-center md:justify-start reveal">
+                    <a href="Resume_Nagendran_M.pdf" download="Nagendran_M_Resume.pdf" class="btn-gamified inline-flex items-center gap-2 bg-blue-600 text-white font-bold py-3 px-8 rounded-lg overflow-hidden">
+                        <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        DOWNLOAD RESUME
+                    </a>
+                </div>
                 </div>
             </div>
         </div>
